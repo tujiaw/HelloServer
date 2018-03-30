@@ -44,7 +44,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IntDir>$(SolutionDir)build\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)build\$(Configuration)\$(ProjectName)</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\$(ProjectName)</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -70,19 +71,35 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib;$(SolutionDir)lib\msgexpress\inc;$(SolutionDir)lib\msgexpress\protobuf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\msgexpress\lib\$(Configuration);$(SolutionDir)lib\log4cxx\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libprotobuf32.lib;msgexpress.lib;log4cxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\lib\msgexpress\protobuf\helloserver.pb.cc" />
+    <ClCompile Include="..\lib\msgexpress\protobuf\msgexpress.pb.cc" />
+    <ClCompile Include="AppClient.cpp" />
     <ClCompile Include="HelloClient.cpp" />
+    <ClCompile Include="simpleini\ConvertUTF.c" />
+    <ClCompile Include="simpleini\snippets.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\lib\msgexpress\protobuf\helloserver.pb.h" />
+    <ClInclude Include="..\lib\msgexpress\protobuf\msgexpress.pb.h" />
+    <ClInclude Include="..\lib\msgexpress\protobuf\protobuf.h" />
+    <ClInclude Include="AppClient.h" />
+    <ClInclude Include="simpleini\ConvertUTF.h" />
+    <ClInclude Include="simpleini\SimpleIni.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

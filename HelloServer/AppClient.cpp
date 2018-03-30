@@ -38,6 +38,7 @@ AppClient::~AppClient()
 void AppClient::OnMessage(PackagePtr package)
 {
 	std::string type = package->getClassType();
+	std::cout << "================on message type:" << type << "===============" << std::endl;
 	if (type == "HelloServer.HelloReq") {
 		HelloReq *req = static_cast<HelloReq*>(package->getMessage().get());
 		MessagePtr rsp(new HelloRsp());

@@ -3,17 +3,14 @@
 <configuration>
 	<!-- appName 的基本信息 -->
   <client>
-    <appName>HelloServer</appName>
+    <appName>HelloClient</appName>
     <appType>1</appType>
     <appGroup>1</appGroup>
-    <uuid>HelloServer</uuid>
+    <uuid>HelloClient</uuid>
     <auth>test</auth>
-	<serviceList>
-		<service>320</service>
-	</serviceList>
   </client>
   <serverGroup>
-  	<server  IP="172.16.66.87" port="8888"></server>
+  	<server  IP="172.16.66.87" port="1111"></server>
 	<!-- <server  IP="47.100.7.224" port="55555"></server> -->
   </serverGroup>
   <heartbeat>

@@ -11,8 +11,6 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-
-	////////////////////////////////////////////////////////
 	bool logResult = LogInit("./config/log4cxx.properties");
 	if (!logResult) {
 		std::cout << "init log error" << std::endl;

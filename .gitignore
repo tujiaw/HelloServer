@@ -3,3 +3,5 @@
 /ipch
 /HelloServer.sdf
 /HelloServer/build
+/bin/Release/HelloServer.exe
+/bin/Release/HelloServer.pdb
