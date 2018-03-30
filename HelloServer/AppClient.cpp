@@ -38,13 +38,11 @@ AppClient::~AppClient()
 void AppClient::OnMessage(PackagePtr package)
 {
 	std::string type = package->getClassType();
-	std::cout << "on message, class type:" << type << std::endl;
 	if (type == "HelloServer.HelloReq") {
 		HelloReq *req = static_cast<HelloReq*>(package->getMessage().get());
 		MessagePtr rsp(new HelloRsp());
 		HelloRsp* p = static_cast<HelloRsp*>(rsp.get());
-		p->set_code(0);
-		p->set_content(std::to_string(getCurrentMilliseconds()));
+		p->set_str(req->str());
 		this->Reply(package, *rsp.get());
 	}
 }
@@ -61,13 +59,20 @@ void AppClient::OnEvent(int eventId)
 
 void AppClient::threadHandle()
 {
+	return;
+	int number = 0;
 	while (1) {
-		std::this_thread::sleep_for(std::chrono::seconds(5));
+		std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 		MessagePtr sub(new HelloSub());
 		HelloSub *p = static_cast<HelloSub*>(sub.get());
-		p->set_str1(getFormatCurrentTime());
-		this->Publish(sub, [](const MsgParams &msg) {
-			std::cout << "publish result:" << msg.result << std::endl;
+		std::string str2;
+		for (int i = 0; i < 1024; i++) {
+			str2 += "a";
+		}
+		p->set_str2(str2);
+		p->set_str1(std::to_string(getCurrentMilliseconds()));
+		this->Publish(sub, [&number](const MsgParams &msg) {
+			std::cout << "publish result:" << msg.result << ", number:" << ++number << std::endl;
 		}, nullptr);
 	}
 }

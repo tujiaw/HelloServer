@@ -27,13 +27,13 @@
     <ClInclude Include="AppClient.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="msgexpress\protobuf\protobuf.h">
+    <ClInclude Include="..\lib\msgexpress\protobuf\helloserver.pb.h">
       <Filter>头文件\msgexpress\protobuf</Filter>
     </ClInclude>
-    <ClInclude Include="msgexpress\protobuf\msgexpress.pb.h">
+    <ClInclude Include="..\lib\msgexpress\protobuf\msgexpress.pb.h">
       <Filter>头文件\msgexpress\protobuf</Filter>
     </ClInclude>
-    <ClInclude Include="msgexpress\protobuf\helloserver.pb.h">
+    <ClInclude Include="..\lib\msgexpress\protobuf\protobuf.h">
       <Filter>头文件\msgexpress\protobuf</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,14 +41,14 @@
     <ClCompile Include="AppClient.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="msgexpress\protobuf\msgexpress.pb.cc">
-      <Filter>头文件\msgexpress\protobuf</Filter>
-    </ClCompile>
-    <ClCompile Include="msgexpress\protobuf\helloserver.pb.cc">
-      <Filter>头文件\msgexpress\protobuf</Filter>
-    </ClCompile>
     <ClCompile Include="HelloServer.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\msgexpress\protobuf\helloserver.pb.cc">
+      <Filter>头文件\msgexpress\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\msgexpress\protobuf\msgexpress.pb.cc">
+      <Filter>头文件\msgexpress\protobuf</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
