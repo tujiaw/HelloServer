@@ -5,3 +5,7 @@
 /HelloServer/build
 /bin/Release/HelloServer.exe
 /bin/Release/HelloServer.pdb
+/bin/Release/HelloServer/HelloServer.exe
+/bin/Release/HelloServer/HelloServer.pdb
+/bin/Release/HelloClient/HelloClient.exe
+/bin/Release/HelloClient/HelloClient.pdb
