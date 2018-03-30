@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <thread>
-#include <tchar.h>
 #include <iostream>
 #include <chrono>
 #include <ctime>
@@ -71,7 +70,7 @@ void startThread(AppClient *app, const std::string &name, int intervalSecond, in
 	t.detach();
 }
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
 	bool logResult = LogInit("./config/log4cxx.properties");
 	if (!logResult) {

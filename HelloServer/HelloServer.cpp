@@ -4,12 +4,11 @@
 #include <iostream>
 #include <string>
 #include <thread>
-#include <tchar.h>
 #include "logger.h"
 #include "AppClient.h"
 
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
 	bool logResult = LogInit("./config/log4cxx.properties");
 	if (!logResult) {

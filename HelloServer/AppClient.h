@@ -1,4 +1,5 @@
-#pragma once
+#ifndef APPCLIENT_H_
+#define APPCLIENT_H_
 
 #include "ClientBase.h"
 #include <thread>
@@ -23,3 +24,4 @@ private:
 	std::thread t_;
 };
 
+#endif // APPCLIENT_H_

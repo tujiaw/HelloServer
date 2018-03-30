@@ -7,17 +7,6 @@
 
 using namespace HelloServer;
 
-std::string getFormatCurrentTime()
-{
-	std::time_t tt = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-	std::tm tm;
-	localtime_s(&tm, &tt);
-	char buffer[1024] = { 0 };
-	sprintf_s(buffer, "%04d/%02d/%02d %02d:%02d:%02d",
-		1900 + tm.tm_year, 1 + tm.tm_mon, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
-	return buffer;
-}
-
 int64_t getCurrentMilliseconds()
 {
 	auto time_now = chrono::system_clock::now();
