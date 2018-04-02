@@ -49,6 +49,7 @@ std::string generateStr(int size)
 
 void startThread(AppClient *app, const std::string &name, int intervalSecond, int size)
 {
+	LOGGER_ERROR("start thread name:" << name << ", interval:" << intervalSecond << "(s), size:" << size << "(bytes)");
 	std::thread t([=]() {
 		const std::string str = generateStr(size);
 		while (1) {
@@ -61,7 +62,7 @@ void startThread(AppClient *app, const std::string &name, int intervalSecond, in
 			if (app->SendMsg(*helloReq, rsp, 10000)) {
 				HelloRsp *helloRsp = static_cast<HelloRsp*>(rsp.get());
 				int64_t elapsed = getCurrentMilliseconds() - start;
-				LOGGER_ERROR("{name:" << name << ", elapsed:" << elapsed << "}");
+				LOGGER_ERROR("{name:" << name << ", elapsed:" << elapsed << "ms}");
 			} else {
 				LOGGER_ERROR("{name:" << name << ", errcode:" << app->GetLatestError().errcode() << "}");
 			}
