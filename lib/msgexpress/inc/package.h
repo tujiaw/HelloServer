@@ -6,7 +6,7 @@
 #pragma warning(disable:4275)
 #endif
 
-#define LIBVERSION "20180118"
+#define LIBVERSION "20180208"
 #define MAXPACKSIZE 102400*5
 
 #include <memory>
@@ -15,7 +15,7 @@
 #include "../protobuf/protobuf.h"
 #ifdef _WIN32
     #ifdef MSGEXPRESS_EXPORTS
-    #include "winSock2.h"
+    #include <winsock2.h>
     #endif
 typedef __int64 int64_t;
 typedef unsigned __int64 uint64_t;
@@ -24,6 +24,7 @@ typedef unsigned __int64 uint64_t;
 #include <stdio.h>
 #include <sys/types.h>
 #include <stdio.h>
+
 #endif
 #include <sys/timeb.h>
 #include <string.h>
@@ -38,15 +39,26 @@ using namespace std;
     #define stricmp strcasecmp
 #endif
 #endif
+#ifdef _WIN32
+#ifndef ntohll
+extern "C" uint64_t ntohll(uint64_t val);
+#endif
+#ifndef htonll
+extern "C" uint64_t htonll(uint64_t val);
+#endif
+#else
+#ifndef ntohll
+uint64_t ntohll(uint64_t val);
+#endif
+#ifndef htonll
+uint64_t htonll(uint64_t val);
+#endif
+#endif
 
 static const char PackageFlag='P';
 static const unsigned char Version1=1;
 static const unsigned char Version2 = 2;
 
-#ifndef ntohll
-uint64_t ntohll(uint64_t val);
-uint64_t htonll(uint64_t val);
-#endif
 uint64_t getCurrentTime();//return ms
 
 #pragma pack(push,1)

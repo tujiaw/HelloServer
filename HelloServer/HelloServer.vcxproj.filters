@@ -13,11 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="头文件\msgexpress">
-      <UniqueIdentifier>{bbae43b5-7527-4a10-bed1-58ec26a80a91}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\msgexpress\protobuf">
-      <UniqueIdentifier>{8355fd49-03a7-47b5-a910-334af17ab95a}</UniqueIdentifier>
+    <Filter Include="protobuf">
+      <UniqueIdentifier>{f209ed42-e2cd-48d7-b9bb-a06968d0a93f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,14 +24,8 @@
     <ClInclude Include="AppClient.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\lib\msgexpress\protobuf\helloserver.pb.h">
-      <Filter>头文件\msgexpress\protobuf</Filter>
-    </ClInclude>
-    <ClInclude Include="..\lib\msgexpress\protobuf\msgexpress.pb.h">
-      <Filter>头文件\msgexpress\protobuf</Filter>
-    </ClInclude>
-    <ClInclude Include="..\lib\msgexpress\protobuf\protobuf.h">
-      <Filter>头文件\msgexpress\protobuf</Filter>
+    <ClInclude Include="protobuf\helloserver.pb.h">
+      <Filter>protobuf</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -44,11 +35,8 @@
     <ClCompile Include="HelloServer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\lib\msgexpress\protobuf\helloserver.pb.cc">
-      <Filter>头文件\msgexpress\protobuf</Filter>
-    </ClCompile>
-    <ClCompile Include="..\lib\msgexpress\protobuf\msgexpress.pb.cc">
-      <Filter>头文件\msgexpress\protobuf</Filter>
+    <ClCompile Include="protobuf\helloserver.pb.cc">
+      <Filter>protobuf</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

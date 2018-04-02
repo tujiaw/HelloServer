@@ -3,7 +3,7 @@
 #include <chrono>
 #include <ctime>
 #include <iomanip>
-#include "protobuf.h"
+#include "./protobuf/helloserver.pb.h"
 
 using namespace HelloServer;
 

@@ -89,16 +89,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\lib\msgexpress\protobuf\helloserver.pb.h" />
-    <ClInclude Include="..\lib\msgexpress\protobuf\msgexpress.pb.h" />
-    <ClInclude Include="..\lib\msgexpress\protobuf\protobuf.h" />
     <ClInclude Include="AppClient.h" />
+    <ClInclude Include="protobuf\helloserver.pb.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\lib\msgexpress\protobuf\helloserver.pb.cc" />
-    <ClCompile Include="..\lib\msgexpress\protobuf\msgexpress.pb.cc" />
     <ClCompile Include="AppClient.cpp" />
     <ClCompile Include="HelloServer.cpp" />
+    <ClCompile Include="protobuf\helloserver.pb.cc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

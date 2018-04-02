@@ -1,6 +1,8 @@
 #ifndef _LOGGER_H
 #define _LOGGER_H
 
+#define LOG4CXX_STATIC
+
 #ifdef _WIN32
 #include <xstring>
 #elif __linux__
@@ -40,6 +42,7 @@ LOGGER_API void SetLogCallback(std::function<void(std::string, std::string)>, in
 LOGGER_API void SetLevel(int level);
 LOGGER_API log4cxx::LoggerPtr GetLogger();
 LOGGER_API void Log(TLogLevel level, const char* fmt, ...);
+LOGGER_API void Log2(TLogLevel level, const char* str);
 
 #define _LOGDEBUG(fmt, ...) {  { Log(ll_debug, fmt, ##__VA_ARGS__); }}
 #define _LOGINFO(fmt, ...) {  {  Log(ll_info, fmt, ##__VA_ARGS__); }}
@@ -50,27 +53,27 @@ LOGGER_API void Log(TLogLevel level, const char* fmt, ...);
 #define LOGGER_DEBUG(message) { \
 	if (GetLogger()->isDebugEnabled()) { \
 		::log4cxx::helpers::MessageBuffer oss_; \
-		_LOGDEBUG(oss_.str(oss_ << message).c_str()) }}
+		Log2(TLogLevel::ll_debug,oss_.str(oss_ << message).c_str()); }}
 
 #define LOGGER_INFO(message) { \
 	if (GetLogger()->isInfoEnabled()) { \
 		::log4cxx::helpers::MessageBuffer oss_; \
-		_LOGINFO(oss_.str(oss_ << message).c_str()) }}
+		Log2(TLogLevel::ll_info,oss_.str(oss_ << message).c_str()); }}
 
 #define LOGGER_WARN(message) { \
 	if (GetLogger()->isWarnEnabled()) { \
 		::log4cxx::helpers::MessageBuffer oss_; \
-		_LOGWARN(oss_.str(oss_ << message).c_str()) }}
+		Log2(TLogLevel::ll_warn,oss_.str(oss_ << message).c_str()); }}
 
 #define LOGGER_ERROR(message) { \
 	if (GetLogger()->isErrorEnabled()) { \
 		::log4cxx::helpers::MessageBuffer oss_; \
-		_LOGERROR(oss_.str(oss_ << message).c_str()) }}
+		Log2(TLogLevel::ll_error,oss_.str(oss_ << message).c_str()); }}
 
 #define LOGGER_FATAL(message) { \
 	if (GetLogger()->isFatalEnabled()) { \
 		::log4cxx::helpers::MessageBuffer oss_; \
-		_LOGFATAL(oss_.str(oss_ << message).c_str()) }}
+		Log2(TLogLevel::ll_fatal,oss_.str(oss_ << message).c_str()); }}
 		
 #define LOG4_DEBUG if(GetLogger()->isDebugEnabled()) _LOGDEBUG
 #define LOG4_INFO if(GetLogger()->isInfoEnabled()) _LOGINFO

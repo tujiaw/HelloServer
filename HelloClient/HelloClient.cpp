@@ -10,8 +10,8 @@
 #include <iomanip>
 #include "logger.h"
 #include "AppClient.h"
-#include "protobuf.h"
 #include "./simpleini/SimpleIni.h"
+#include "./protobuf/helloserver.pb.h"
 
 using namespace HelloServer;
 std::string getFormatCurrentTime()

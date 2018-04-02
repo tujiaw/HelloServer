@@ -70,6 +70,9 @@ struct ClientCFG
 	int zlibswitch;
 	int zlibthreshold;
 
+	bool multipageswitch;
+	int multipagesize;
+
 	int loglevel;
 	string logfilename;
 	bool reportlog;
@@ -93,6 +96,9 @@ struct ClientCFG
 		heartbeatSwitch=1;//Ä¬ÈÏÐÄÌø
 		zlibswitch=1;
 	    zlibthreshold=30;
+
+		multipageswitch = 0;
+		multipagesize = 100000;
 
 		sendmode=0;
 
@@ -127,6 +133,9 @@ struct ClientCFG
 		heartbeatSwitch=cfg.heartbeatSwitch;
 		zlibswitch=cfg.zlibswitch;
 		zlibthreshold=cfg.zlibthreshold;
+
+		multipageswitch = cfg.multipageswitch;
+		multipagesize = cfg.multipagesize;
 
 		loglevel=cfg.loglevel;
 		reportlog=cfg.reportlog;
@@ -176,6 +185,12 @@ struct MsgParams
 	MessagePtr req;
 	PackagePtr resp;
 	void* arg;
+	MsgParams()
+	{
+		result = 0;
+		hasNextPackage = false;
+		arg = NULL;
+	}
 };
 enum LoadBalanceType : unsigned char
 {
